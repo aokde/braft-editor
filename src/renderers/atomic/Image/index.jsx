@@ -36,7 +36,22 @@ export default class Image extends React.Component {
       imageStyles.float = 'left'
       clearFix = true
     }
-
+	
+	return (
+      <div className="braft-media-embeder">
+        <div
+          style={imageStyles}
+          className="braft-embed-image"
+        >
+          <img
+            ref={instance => this.imageElement = instance}
+            src={url} width={width} height={height}
+          />
+        </div>
+        {clearFix && <div className="clearfix" style={{clear:'both',height:0,lineHeight:0,float:'none'}}></div>}
+      </div>
+    )
+	
     return (
       <div className="braft-media-embeder">
         <div
